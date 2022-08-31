@@ -1,0 +1,10 @@
+.important {
+  font-weight: bolder;
+  color: #f18f01;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.task_is_done {
+  text-decoration: line-through;
+}
