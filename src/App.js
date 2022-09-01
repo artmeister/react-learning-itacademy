@@ -9,6 +9,7 @@ import Home from './components/Home'
 import Squares from './components/Squares'
 import Todo from './components/Todo'
 import Ishop from './components/Ishop'
+import Ishop2 from './components/Ishop2'
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
             <li>
               <Link to="/ishop">Ishop</Link>
             </li>
+            <li>
+              <Link to="/ishop2">Ishop2</Link>
+            </li>
           </ul>
         </nav>
 
@@ -36,6 +40,7 @@ const App = () => {
           <Route exact path="/squares" element={<Squares/>} />
           <Route exact path="/todo" element={<Todo/>} />
           <Route exact path="/ishop" element={<Ishop/>} />
+          <Route exact path="/ishop2" element={<Ishop2/>} />
         </Routes>
       </div>
     </Router>
