@@ -4,46 +4,19 @@ import List from '@mui/material/List';
 
 import TodoListItem from '../TodoListItem';
 
-const TodoList = () => {
-
-  const arrList = [
-    {
-      id: 1,
-      todoCount: 10,
-      important: false,
-      done: false
-    },
-    {
-      id: 2,
-      todoCount: 20,
-      important: false,
-      done: false
-    },
-    {
-      id: 3,
-      todoCount: 30,
-      important: false,
-      done: false
-    },
-    {
-      id: 4,
-      todoCount: 40,
-      important: false,
-      done: false
-    },
-    {
-      id: 5,
-      todoCount: 50,
-      important: false,
-      done: false
-    }
-  ]
+const TodoList = ({ todoListItems, onToggle, onDelete, toggleFavorite }) => {
 
   return (
     <List className={cls.tasks}>
-      {arrList.map( item => {
+      {todoListItems.map(item => {
         return (
-          <TodoListItem key={item.id} {...item} />
+          <TodoListItem
+            {...item}
+            key={item.id}
+            onToggle={() => onToggle(item.id)}
+            onDelete={() => onDelete(item.id)}
+            toggleFavorite={() => toggleFavorite(item.id)}
+          />
         )
       })}
     </List>

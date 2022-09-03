@@ -7,20 +7,25 @@ import {
   FormControl,
 } from '@mui/material';
 
-const TodoForm = ({ onSubmit }) => {
-  const [taskName, setTaskName] = useState('')
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+const TodoForm = ({ onAdded }) => {
+  const [taskName, setTaskName] = useState('');
+
+  const onAddedTask = (e) => {
+    e.preventDefault();
     
     if(!!taskName) {
-      alert(taskName)
-      setTaskName('')
+      onAdded(taskName);
+      setTaskName('');
     }
   }
 
+  // const changeTaskName = (e) => {
+  //   setTaskName(e.target.value)
+  // }
+
   return (
-    <form className={cls.TodoForm} onSubmit={handleSubmit}>
+    <form className={cls.TodoForm} onSubmit={onAddedTask}>
       <FormControl sx={{
         flexDirection: 'row',
         gap: 1,

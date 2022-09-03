@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Table,
   TableHead,
@@ -10,22 +9,7 @@ import {
 import Product from '../Product'
 
 
-const Store = ({ products, columns, cls }) => {
-  const [rowsData, setRowsData] = useState(products);
-  const [selectedRow, setSelectedRow] = useState({});
-
-
-  const handleClickDeleted = (index) => {
-    const question = window.confirm('Вы уверены?');
-
-    const rows = [...rowsData];
-    rows.splice(index, 1);
-
-    if (question) {
-      setRowsData(rows);
-    }
-  }
-
+const Store = ({ products, columns, cls, onDelete, onToggle }) => {
   return (
     // <DataGrid
     //   rows={products}
@@ -40,21 +24,21 @@ const Store = ({ products, columns, cls }) => {
       <TableHead>
         <TableRow>
           <TableCell>Изображение товара</TableCell>
-          <TableCell>Наименование</TableCell>
+          <TableCell align='center'>Наименование</TableCell>
           <TableCell>Цена, ед.</TableCell>
           <TableCell>Кол-во, шт.</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {rowsData.map((row, index) => {
+        {products.map(row => {
           return (
             <Product
-              selected={selectedRow}
+              {...row}
               key={row.id}
               cls={cls}
               productRow={row}
-              onClick={() => setSelectedRow(row)}
-              handleClickDeleted={() => handleClickDeleted(index)}
+              onToggle={() => onToggle(row.id)}
+              onDelete={() => onDelete(row.id)}
             />
           )
         })}
