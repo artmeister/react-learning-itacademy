@@ -10,6 +10,8 @@ import Squares from './components/Squares'
 import Todo from './components/Todo'
 import Ishop from './components/Ishop'
 import Ishop2 from './components/Ishop2'
+import Filter from './components/Filter'
+
 
 const App = () => {
   return (
@@ -32,15 +34,19 @@ const App = () => {
             <li>
               <Link to="/ishop2">Ishop2</Link>
             </li>
+            <li>
+              <Link to="/filter">Filter</Link>
+            </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route exact path="/react-learning-itacademy" element={<Home/>} />
-          <Route exact path="/squares" element={<Squares/>} />
-          <Route exact path="/todo" element={<Todo/>} />
-          <Route exact path="/ishop" element={<Ishop/>} />
-          <Route exact path="/ishop2" element={<Ishop2/>} />
+          <Route exact path="/react-learning-itacademy" element={<Home />} />
+          <Route exact path="/squares" element={<Squares />} />
+          <Route exact path="/todo" element={<Todo />} />
+          <Route exact path="/ishop" element={<Ishop />} />
+          <Route exact path="/ishop2" element={<Ishop2 />} />
+          <Route exact path="/filter" element={<Filter />} />
         </Routes>
       </div>
     </Router>
