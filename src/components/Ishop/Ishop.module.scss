@@ -1,4 +1,9 @@
-.photo {
+.productPhoto {
   max-width: 200px;
   max-height: 200px;
+}
+.selectedRow {
+  -webkit-box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.2);
 }
