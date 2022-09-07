@@ -4,13 +4,11 @@ import {
   TextField,
   Box,
   Checkbox,
-  IconButton
 } from '@mui/material';
-import ClearIcon from '@mui/icons-material/Clear';
 
 
 const Filter = () => {
-
+  // eslint-disable-next-line no-unused-vars
   const [films, setFilms] = useState([
     { title: 'The Shawshank Redemption', year: 1994 },
     { title: 'The Godfather', year: 1972 },
@@ -58,20 +56,16 @@ const Filter = () => {
   });
 
   const [checked, setChecked] = useState(false);
-  const [value, setValue] = useState('')
 
-  const handleChange = () => {
+  const onChangeCheck = () => {
     setChecked(prevCheck => !prevCheck);
   };
 
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  const clearInput = () => {
-    setChecked(false);
-    setValue('')
-  };
+  const onInputChange = (event, value, reason) => {
+    if(reason === "input") console.log(event.target.value);
+    if(reason === "reset") console.log(value);
+    if(reason === "clear") setChecked(false);
+   };
 
   return (
     <Box
@@ -92,18 +86,14 @@ const Filter = () => {
         sx={{ width: 300 }}
         disableCloseOnSelect
         open
-        disableClearable
         clearOnBlur={false}
-        inputValue={value}
-        onInputChange={onChange}
+        onInputChange={onInputChange}
+        freeSolo
       />
       <Checkbox
         checked={checked}
-        onChange={handleChange}
+        onChange={onChangeCheck}
       />
-      <IconButton onClick={clearInput}>
-        <ClearIcon />
-      </IconButton>
     </Box>
   );
 }
