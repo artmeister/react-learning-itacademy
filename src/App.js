@@ -9,7 +9,7 @@ import Home from './components/Home'
 import Squares from './components/Squares'
 import Todo from './components/Todo'
 import Ishop from './components/Ishop'
-import Filter from './components/Filter'
+import Filter2 from './components/Filter2'
 
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
               <Link to="/ishop">Ishop</Link>
             </li>
             <li>
-              <Link to="/filter">Filter</Link>
+              <Link to="/filter2">Filter2</Link>
             </li>
           </ul>
         </nav>
@@ -41,7 +41,7 @@ const App = () => {
           <Route exact path="/squares" element={<Squares />} />
           <Route exact path="/todo" element={<Todo />} />
           <Route exact path="/ishop" element={<Ishop />} />
-          <Route exact path="/filter" element={<Filter />} />
+          <Route exact path="/filter2" element={<Filter2 />} />
         </Routes>
       </div>
     </Router>
