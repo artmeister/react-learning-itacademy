@@ -23,7 +23,6 @@ const Facts = () => {
     `https://api.genderize.io/?name=${name}`
   ];
 
-  // async function getData() {
   const getData = async () => {
     await Promise.allSettled(apis.map(api => axios(api)))
       .then(results => {
