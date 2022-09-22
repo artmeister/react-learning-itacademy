@@ -1,9 +1,62 @@
+$tableCardWidth: 250px;
+$tableCardMargin: 30px;
+
+.container {
+  width: calc(100% - $tableCardWidth - $tableCardMargin);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
 .productPhoto {
   max-width: 200px;
   max-height: 200px;
+  margin: auto;
 }
 .selectedRow {
   -webkit-box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.2);
   box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.2);
+}
+.tableRow {
+  position: relative;
+
+  & ~ .tableRowCard {
+    .card {
+      max-width: $tableCardWidth;
+      margin: auto;
+
+      img {object-fit: contain;}
+
+      .cardContent {text-align: center;}
+    }
+  }
+
+  .tableCellCard {
+    position: absolute;
+    top: 50%;
+  
+    text-align: center;
+  
+    border: none;
+  
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+
+    .card {
+      width: $tableCardWidth;
+
+      img {object-fit: contain;}
+
+      .cardContent {text-align: center;}
+    }
+  }
 }
