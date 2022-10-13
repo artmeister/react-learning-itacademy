@@ -3,8 +3,7 @@ import RainbowFrame from "../../components/RainbowFrame";
 
 const Rainbow = () => {
 
-  const text = 'Заголовок';
-  const colors = ['red', 'orange', 'purple', 'blue', 'yellow', 'gray'];
+  const colors = ['red', 'orange', 'purple', 'blue', 'green', 'gray'];
 
   return (
     <Box
@@ -15,7 +14,7 @@ const Rainbow = () => {
       }}
     >
       <RainbowFrame colors={colors}>
-        {text}
+        <b>ЗАГОЛОВОК</b>
       </RainbowFrame>
     </Box>
   );

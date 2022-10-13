@@ -6,14 +6,19 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  useMediaQuery
+  useMediaQuery,
+  Button
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import useElementSize from '../../../../hooks/useElementSize'
-// import useRefDimensions from '../../../../hooks/useRefDimensions'
+
 import EditableRow from './components/EditableRow';
+
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../../redux/cartSlice';
+
 
 const Product = ({
   productRow,
@@ -25,17 +30,16 @@ const Product = ({
   editClick,
   cancelClick,
   editProductId,
-  editFormData,
+  editFormData
 }) => {
   const classNameSelected = productRow.selected ? cls.selectedRow : '';
   const selectedRow = productRow.selected ? true : false;
   const mobileMediaQuery = useMediaQuery('(max-width:992px)');
   const desktopMediaQuery = useMediaQuery('(min-width:993px)');
 
-  const [cardRef, { height }] = useElementSize()
+  const dispatch = useDispatch()
 
-  // const cardRef = createRef()
-  // const dimensions = useRefDimensions(tableCellCard)
+  const [cardRef, { height }] = useElementSize()
 
   return (
     <>
@@ -81,6 +85,20 @@ const Product = ({
               >
                 <DeleteIcon />
               </IconButton>
+              <Button
+                variant="contained"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  dispatch(addToCart({
+                    id: productRow.id,
+                    title: productRow.name,
+                    image: productRow.photo,
+                    price: productRow.price
+                  }))
+                }}
+              >
+                В корзину
+              </Button>
             </TableCell>
 
             {openedModal ? null : productRow.selected && desktopMediaQuery &&

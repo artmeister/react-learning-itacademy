@@ -10,7 +10,9 @@ import {
 } from '@mui/material';
 import Product from '../Product'
 import FormDialog from '../FormDialog'
-
+import { ShoppingCart } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 const Store = ({
   products,
@@ -24,8 +26,11 @@ const Store = ({
   editClick,
   cancelClick,
   editProductId,
-  editFormData,
+  editFormData
 }) => {
+
+  const navigate = useNavigate()
+  const cart = useSelector((state) => state.cart)
 
   const [open, setOpen] = useState(false);
   const [disable, setDisable] = useState(true);
@@ -48,6 +53,16 @@ const Store = ({
     }
   }
 
+  const getTotal = () => {
+    let totalQuantity = 0
+    let totalPrice = 0
+    cart.forEach(item => {
+      totalQuantity += item.quantity
+      totalPrice += item.price * item.quantity
+    })
+    return {totalPrice, totalQuantity}
+  }
+
   useEffect(() => {
     if (
       (name) !== '' &&
@@ -57,6 +72,18 @@ const Store = ({
   
   return (
     <Box className={cls.container}>
+      <Box
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '20px', cursor: 'pointer' }}
+        className='shopping-cart'
+        onClick={() => navigate('/cart')}
+      >
+        <ShoppingCart id='cartIcon' fontSize="large" />
+        <Box sx={{ flexDirection: 'column' }}>
+          <p>{getTotal().totalQuantity || 0} шт.</p>
+          <p>{getTotal().totalPrice || 0} ед.</p>
+        </Box>
+      </Box>
+
       <form onSubmit={editFormSubmit}>
         <Table>
           <TableHead>
