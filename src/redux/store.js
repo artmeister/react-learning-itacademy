@@ -1,5 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { cartReducer } from "./cartSlice";
+import { todoReducer } from "./todoSlice";
 import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
@@ -10,14 +11,19 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
+} from 'redux-persist';
+
+const rootReducer = combineReducers({
+  cart: cartReducer,
+  todo: todoReducer
+ });
 
 const persistConfig = {
   key: 'root',
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, cartReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,

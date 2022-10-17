@@ -37,9 +37,9 @@ const Product = ({
   const mobileMediaQuery = useMediaQuery('(max-width:992px)');
   const desktopMediaQuery = useMediaQuery('(min-width:993px)');
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [cardRef, { height }] = useElementSize()
+  const [cardRef, { height }] = useElementSize();
 
   return (
     <>

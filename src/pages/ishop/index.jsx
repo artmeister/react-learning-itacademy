@@ -32,6 +32,8 @@ const Ishop2 = () => {
     const productDeleting = products.filter(product => product.id !== id);
 
     setProducts(productDeleting);
+
+    console.log(productDeleting)
   }
 
   const onAdded = (name, price, photo, mount) => {

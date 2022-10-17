@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/home'
 import Squares from './pages/squares'
 import Todo from './pages/todo'
+import Todo2 from './pages/todo2'
 import Ishop from './pages/ishop'
 import Cart from './pages/ishop/components/Cart';
 import Facts from './pages/facts'
@@ -24,7 +25,7 @@ const App = () => {
       <Routes>
         <Route index path="react-learning-itacademy" element={<Home />} />
         <Route path="squares" element={<Squares />} />
-        <Route path="todo" element={<Todo />} />
+        <Route path="todo" element={<Todo2 />} />
         <Route path="ishop" element={<Ishop />} />
         <Route path='cart' element={<Cart />}/>
         <Route path="facts" element={<Facts />} />

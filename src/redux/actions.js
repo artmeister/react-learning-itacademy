@@ -1,14 +1,14 @@
 const addToCart = (id) => {
   return {
-    type: "addToCart",
-    payload: console.log(id)
+    type: "ADD_TO_CART",
+    payload: id
   };
 };
 
 const removeFromCart = (id) => {
   return {
-    type: "removeFromCart",
-    payload: console.log(id)
+    type: "REMOVE_FROM_CART",
+    payload: id
   };
 };
 

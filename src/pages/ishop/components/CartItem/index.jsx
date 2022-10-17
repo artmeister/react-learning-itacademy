@@ -2,8 +2,8 @@ import './cartItem.scss'
 import { incrementQuantity, decrementQuantity, removeItem} from '../../../../redux/cartSlice'
 import { useDispatch } from 'react-redux'
 
-function CartItem({id, image, title, price, quantity=0}) {
-  const dispatch = useDispatch()
+function CartItem({id, image, title, price, quantity = 0}) {
+  const dispatch = useDispatch();
 
   return (
     <div className="cartItem">

@@ -29,9 +29,9 @@ const Store = ({
   editFormData
 }) => {
 
-  const navigate = useNavigate()
-  const cart = useSelector((state) => state.cart)
-
+  const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart.cart);
+  
   const [open, setOpen] = useState(false);
   const [disable, setDisable] = useState(true);
 
